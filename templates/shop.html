@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaSadShop</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/shop1.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="icon" href="{{url_for('static', filename='photos/favicon.ico')}}" type="image/icon">
+<body>
+    <nav class="nav">
+        <div class="text-nav">
+            <div class="left">
+                <a class="link" href="#kepcaps">Keycaps</a>
+            </div>
+            <div class="right">
+                <a href="/"><p class="name">DaSadShop</p></a>
+            </div>
+            <a class="cart-link" href="cart">
+                <i class="fa fa-shopping-cart icon"></i><span class="item-number">0</span>
+            </a>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="keycaps" id="keycaps">
+
+            <div class="item1 items">
+                  <div id="slider">
+                    <figure>
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/shark1.jpg')}}" alt="shark keycap">
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/shark2.jpg')}}" alt="shark keycap">
+                    </figure>
+                </div>
+                <div class="item-text">
+                    <p class="text">Shark keycap</p>
+                    <p class="price">5.00 Eur</p>
+                </div>
+                <a class="addtocart">add to cart</a>
+            </div>
+
+            <div class="item2 items">
+                <div id="slider">
+                    <figure>
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/mjolnir1.jpg')}}"  alt="mjolnir keycap">
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/mjolnir2.jpg')}}"  alt="mjolnir keycap">
+                    </figure>
+                </div>
+                <div class="item-text">
+                    <p class="text">Mjolnir keycap</p>
+                    <p class="price">5.00 Eur</p>
+                </div>
+                <a class="addtocart">add to cart</a>
+            </div>
+
+            <div class="item3 items">
+                <div id="slider">
+                    <figure>
+                       <img class="back-photo" src="{{url_for('static', filename='photos/img/ironman.jpg')}}" alt="ironman keycap">
+                       <img class="back-photo" src="{{url_for('static', filename='photos/img/ironman.jpg')}}" alt="ironman keycap">
+                    </figure>
+                </div>
+                <div class="item-text">
+                    <p class="text">Iron-Man keycap</p>
+                    <p class="price">5.00 Eur</p>
+                </div>
+                <a class="addtocart">add to cart</a>
+            </div>
+
+            <div class="item4 items">
+                <div id="slider">
+                    <figure>
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/avengers1.jpg')}}"  alt="avengers keycap">
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/avengers2.jpg')}}"  alt="avengers keycap">
+                    </figure>
+                </div>
+                <div class="item-text">
+                    <p class="text">Avengers keycap</p>
+                    <p class="price">5.00 Eur</p>
+                </div>
+                <a class="addtocart">add to cart</a>
+            </div>
+
+            <div class="item5 items">
+                <div id="slider">
+                    <figure>
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/game.jpg')}}" alt="game controller keycap">
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/game2.jpg')}}" alt="game controller keycap">
+                    </figure>
+                </div>
+                <div class="item-text">
+                    <p class="text">controller keycap</p>
+                    <p class="price">5.00 Eur</p>
+                </div>
+                <a class="addtocart">add to cart</a>
+            </div>
+
+            <div class="item6 items">
+                <div id="slider">
+                    <figure>
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/p901.jpg')}}" alt="p90 keycap">
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/p902.jpg')}}" alt="p90 keycap">
+                    </figure>
+                </div>
+                <div class="item-text">
+                    <p class="text">P90 keycap</p>
+                    <p class="price">5.00 Eur</p>
+                </div>
+                <a class="addtocart">add to cart</a>
+            </div>
+
+            <div class="item7 items">
+                <div id="slider">
+                    <figure>
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/basic.jpg')}}" alt="basic keycap">
+                        <img class="back-photo" src="{{url_for('static', filename='photos/img/basic.jpg')}}" alt="basic keycap">
+                    </figure>
+                </div>
+                <div class="item-text">
+                    <p class="text">Basic keycap</p>
+                    <p class="price">5.00 Eur</p>
+                </div>
+                <a class="addtocart">add to cart</a>
+            </div>
+       </div>
+    </div>
+    <div class="copyright">
+        <div class="line"><p class="cpytext">Copyright © 2021 DaSadWeb</p></div>
+    </div>
+
+   <script src="{{url_for('static', filename='js/shop.js')}}"></script>    
+</body>
+</html>
