@@ -1,0 +1,69 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.main {
+  margin: 0;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+}
+
+.img img {
+  height: 100%;
+  width: 100%;
+}
+
+.text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.text h1 {
+  color: white;
+}
+
+/*=========Footer========*/
+.copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+}
+
+.line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-top: 2px solid white;
+  width: 90%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cpytext {
+  color: white;
+  font-size: 15px;
+}
+/*# sourceMappingURL=404.css.map */
