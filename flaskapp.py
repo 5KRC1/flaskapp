@@ -36,43 +36,6 @@ def cart():
 
 @app.route('/userdata', methods=['POST', 'GET'])
 def usrdata():
-    # if request.method == 'POST':
-    #     ime = request.form.get("firstName")
-    #     priimek = request.form.get("lastName")
-    #     mesto = request.form.get("city")
-    #     posta = request.form.get("postalNumber")
-    #     ulica = request.form.get("street")
-    #     hisnaSt = request.form.get("houseNumber")
-    #     drzava = request.form.get("country")
-
-    #     if not ime or not priimek or not mesto or not posta or not ulica or not hisnaSt or not drzava:
-    #         error_statement = "All form fields required!"
-    #         return render_template('/userdata.html', error_statement=error_statement)
-
-    #     else:
-    #         # firstname = request.form["firstName"]
-    #         # surname = request.form["lastName"]
-    #         # location = request.form["city"]
-    #         # postalCode = request.form["postalNumber"]
-    #         # streets = request.form["street"]
-    #         # numberOfHouse = request.form["houseNumber"]
-    #         # nation = request.form["country"]
-
-    #         # return redirect('/finishOrder', firstname=firstname, surname=surname, location=location, postalCode=postalCode, streets=streets, numberOfHouse=numberOfHouse, nation=nation)
-
-    #         # addOrder = Orders(name=firstname, lastName=surname, city=location, postalNum=postalCode, street=streets, houseNum=numberOfHouse, country=nation)
-
-
-    #         # try:
-    #         #     db.session.add(addOrder)
-    #         #     db.session.commit()
-    #         #     return redirect('/finishOrder')
-    #         # except:
-    #         #     return 'Error'
-
-
-    # else:
-        # orders = Orders.query.order_by(Orders.date)
         return render_template('userdata.html')
 
 @app.route('/finishOrder', methods=['POST', 'GET'])
