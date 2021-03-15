@@ -4,5 +4,5 @@
 
 To Do / Improvements:
   -Payments
-  -store order data
-  -clean css
+  
+!!!!have to make db in python3 first!!!!
