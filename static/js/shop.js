@@ -49,6 +49,7 @@ let products = [
 ];
 
 
+
 // loop that checks for clicks
 for (let i=0; i < carts.length; i++){
     carts[i].addEventListener('click', () => {
@@ -122,6 +123,7 @@ function displayCart() {
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
     let productContainer = document.querySelector('.products-wrap');
+   
 
     if(cartItems && productContainer) {
         productContainer.innerHTML = '';
@@ -131,77 +133,19 @@ function displayCart() {
                 <div class="products">
                         <div class="product">
                             <ion-icon name="close-circle" onclick="
-                                let container = localStorage.getItem('productsInCart');
-                                container = JSON.parse(container);
-                                // updates cart numbers
-                                let productNumbers = localStorage.getItem('cartNumbers')
-                                productNumbers = parseInt(productNumbers);
-                                localStorage.setItem('cartNumbers', productNumbers - ${item.inCart});
-                                document.querySelector('.cart-link span').textContent = productNumbers - ${item.inCart};
-                                // updates the total cost
-                                let cartCost = localStorage.getItem('totalCost');
-                                cartCost = parseInt(cartCost);
-                                localStorage.setItem('totalCost', cartCost - parseInt(${item.inCart}) * parseInt(${item.price}));
-                                // remove item from cart
-                                delete container.${item.tag};
-                                localStorage.setItem('productsInCart', JSON.stringify(container));
-                                location.reload();
-                            ">
+                                let price = ${item.price};
+                                let inCart = ${item.inCart};
+                                let tag = '${item.tag}';
+                                deleteItem(tag, inCart, price);">
                             </ion-icon>
                             <img src="/static/photos/img/${item.tag}.jpg">
                             <span>${item.name}</span>
                         </div>
                         <div class="price">${item.price} Eur</div>
                         <div class="quantity"><ion-icon name="remove-circle" onclick="
-                                let container = localStorage.getItem('productsInCart');
-                                container = JSON.parse(container);
-                                // updates cart numbers
-                                let productNumbers = localStorage.getItem('cartNumbers')
-                                productNumbers = parseInt(productNumbers);
-                                localStorage.setItem('cartNumbers', productNumbers - 1);
-                                document.querySelector('.cart-link span').textContent = productNumbers - 1;
-                                // updates the total cost
-                                let cartCost = localStorage.getItem('totalCost');
-                                cartCost = parseInt(cartCost);
-                                localStorage.setItem('totalCost', cartCost - parseInt(${item.price}));
-                                // update total
-                                
-                                // change item inCart
-                                if (container['${item.tag}'].inCart > 1){
-                                    container['${item.tag}'].inCart -= 1;
-                                    localStorage.setItem('productsInCart', JSON.stringify(container));
-                                    location.reload();
-                                }else if (container['${item.tag}'].inCart == 1){
-                                    delete container['${item.tag}'];
-                                    localStorage.setItem('productsInCart', JSON.stringify(container));
-                                    location.reload();
-                                };
-                                location.reload();
-                        ">
+                                removeOne('${item.tag}', ${item.inCart}, ${item.price});">
                         </ion-icon></i>${item.inCart}<ion-icon name="add-circle" onclick="
-                                let container = localStorage.getItem('productsInCart');
-                                container = JSON.parse(container);
-
-                                if (container['${item.tag}'].inCart > 0 && container['${item.tag}'].inCart < 5){
-                                // updates cart numbers
-                                    let productNumbers = localStorage.getItem('cartNumbers')
-                                    productNumbers = parseInt(productNumbers);
-                                    localStorage.setItem('cartNumbers', productNumbers + 1);
-                                    document.querySelector('.cart-link span').textContent = productNumbers + 1;
-                                // updates the total cost
-                                    let cartCost = localStorage.getItem('totalCost');
-                                    cartCost = parseInt(cartCost);
-                                    localStorage.setItem('totalCost', cartCost + parseInt(${item.price}));
-                                // remove item from cart
-                                    container['${item.tag}'].inCart += 1;
-                                    localStorage.setItem('productsInCart', JSON.stringify(container));
-                                    location.reload();
-                                }else if (container['${item.tag}'].inCart == 5){
-                                    alert('Sorry, you cannot buy more than 5.');
-                                };
-                                
-                                location.reload();
-                        ">
+                                addOne('${item.tag}', ${item.inCart}, ${item.price});">
                         </ion-icon></div>
                         <div class="total">${item.inCart * item.price} Eur</div>
                 </div>
@@ -253,3 +197,74 @@ onLoadCartNumbers();
 displayCart();
 
 button();
+
+// cart buttons
+function deleteItem(itemTag, itemInCart, itemPrice){
+    let container = localStorage.getItem('productsInCart');
+    container = JSON.parse(container);
+    // updates cart numbers
+    let productNumbers = localStorage.getItem('cartNumbers')
+    productNumbers = parseInt(productNumbers);
+    localStorage.setItem('cartNumbers', productNumbers - itemInCart);
+    document.querySelector('.cart-link span').textContent = productNumbers - itemInCart;
+    // updates the total cost
+    let cartCost = localStorage.getItem('totalCost');
+    cartCost = parseInt(cartCost);
+    localStorage.setItem('totalCost', cartCost - parseInt(itemInCart) * parseInt(itemPrice));
+    //remove item from cart
+    delete container[itemTag];
+    localStorage.setItem('productsInCart', JSON.stringify(container));
+    location.reload();
+};
+
+function removeOne(itemTag, itemInCart, itemPrice) {
+    let container = localStorage.getItem('productsInCart');
+    container = JSON.parse(container);
+    // updates cart numbers
+    let productNumbers = localStorage.getItem('cartNumbers')
+    productNumbers = parseInt(productNumbers);
+    localStorage.setItem('cartNumbers', productNumbers - 1);
+    document.querySelector('.cart-link span').textContent = productNumbers - 1;
+    // updates the total cost
+    let cartCost = localStorage.getItem('totalCost');
+    cartCost = parseInt(cartCost);
+    localStorage.setItem('totalCost', cartCost - parseInt(itemPrice));
+    // update total
+    
+    // change item inCart
+    if (container[itemTag].inCart > 1){
+        container[itemTag].inCart -= 1;
+        localStorage.setItem('productsInCart', JSON.stringify(container));
+        location.reload();
+    }else if (container[itemTag].inCart == 1){
+        delete container[itemTag];
+        localStorage.setItem('productsInCart', JSON.stringify(container));
+        location.reload();
+    };
+    location.reload();
+};
+
+function addOne(itemTag, itemInCart, itemPrice) {
+    let container = localStorage.getItem('productsInCart');
+    container = JSON.parse(container);
+
+    if (container[itemTag].inCart > 0 && container[itemTag].inCart < 5){
+    // updates cart numbers
+        let productNumbers = localStorage.getItem('cartNumbers')
+        productNumbers = parseInt(productNumbers);
+        localStorage.setItem('cartNumbers', productNumbers + 1);
+        document.querySelector('.cart-link span').textContent = productNumbers + 1;
+    // updates the total cost
+        let cartCost = localStorage.getItem('totalCost');
+        cartCost = parseInt(cartCost);
+        localStorage.setItem('totalCost', cartCost + parseInt(itemPrice));
+    // remove item from cart
+        container[itemTag].inCart += 1;
+        localStorage.setItem('productsInCart', JSON.stringify(container));
+        location.reload();
+    }else if (container[itemTag].inCart >= 5){
+        alert('Sorry, you cannot buy more than 5.');
+    };
+    
+    location.reload();
+};
