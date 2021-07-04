@@ -1,8 +1,3 @@
 # myPersonalWebAndMyShop
 
-#my personal website + my ecommerce website
-
-To Do / Improvements:
-  -Payments
-  
-!!!!have to make db in python3 first!!!!
+shop/e-commerce website written in python flask and native javascript (from Telmo Sampaio's tutorial on youtube)
